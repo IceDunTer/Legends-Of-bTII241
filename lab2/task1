@@ -1,0 +1,31 @@
+#include <iostream>
+#include <math.h>
+#include <locale.h>
+using namespace std;
+
+int main() {
+	setlocale(LC_ALL, "ru");
+	int const n = 10;
+	int mass[n];
+	float s = 0; // сумма чисел
+	for (int i = 0; i < n; i++)
+	{
+		cout << "arr[" << i << "] = ";
+		cin >> mass[i];
+		s += mass[i];
+	}
+	int max = 0;
+	for (int i = 0; i < n; i++)
+	{
+		if (mass[i] > max) {
+			max = mass[i];
+		}
+	}
+	float result = s / n;
+	cout << "Макс число = " << max << endl;
+	printf("среднее арифметическое = %lg\n", result);
+	for (int i = n - 1; i >= 0; i--)
+		cout << mass[i] << " ";
+
+	return 0;
+}

@@ -40,12 +40,11 @@ void main() {
 	int n;
 	cout << "Введите кол-во символов в массиве:\n";
 	scanf_s("%i", &n);
+	cout << "Исходный массив:";
 	fillArray(arr, n); // заполнение массива
 	printArray(arr, n);
 
+	cout << "Отсортированный массив:";
 	sortArray(arr, n); // сортировка массива
 	printArray(arr, n);
-
-
-
 }

@@ -7,7 +7,8 @@
 void outmas2(int razm, int massiv[][16]) {
 	for (int i = 0; i < razm; i++) {
 		for (int j = 0; j < razm; j++) {
-			std::cout << std::setw(3) << massiv[i][j];
+			if (massiv[i][j]!=-858993460) std::cout << std::setw(3) << massiv[i][j];
+			else std::cout << std::setw(3) << 0;
 		}
 		std::cout<<std::endl;
 	}
@@ -15,33 +16,27 @@ void outmas2(int razm, int massiv[][16]) {
 void main() {
 	setlocale(LC_ALL, "RUS");
 	int massiv[16][16], g;
-	//std::cout << "Введите сторону матрицы" << std::endl;
-	//std::cin >> g;
-	g = 4;
-	int cnt = g-1, cnt1 = 1,cnt2=1, i = 0, j=0,krug=0;
+	std::cout << "Введите сторону матрицы" << std::endl;
+	std::cin >> g;
+	int cnt = g-1, cnt1 = 1,cnt2=1, i = 0, j=0,krug=1;
 	for (i; i < g/2; i+=cnt1) {
 		for (j=i; j < g-i; j+=cnt1) {
 			massiv[i][j] = cnt2;
-			outmas2(4, massiv);
-			massiv[j][cnt] = cnt2 + (cnt-i)*1;
-			outmas2(4, massiv);
-			printf("\n");
-			printf("%i %i\n", cnt, cnt - j);
-			printf("\n");
-			if ((cnt-j)==cnt) massiv[cnt][cnt - j] = cnt2 + (cnt-i) * 2;
-			else massiv[cnt][cnt] = cnt2 + (cnt - i) * 2;
-			outmas2(4, massiv);
-			if (j!=cnt) massiv[cnt-j][i] = cnt2 + (cnt-i) * 3;
-			outmas2(4, massiv);
+			outmas2(g, massiv);
+			if ((j != i) && (j != cnt)) massiv[j][cnt] = cnt2 + (cnt - i) * 1;
+			outmas2(g, massiv);
+			if (cnt < g - 1) massiv[cnt][cnt - j + (g-1-cnt)] = cnt2 + (cnt - i) * 2;
+			else massiv[cnt][cnt - j] = cnt2 + (cnt - i) * 2;
+			outmas2(g, massiv);
+			if (cnt < g - 1) { if ((j != i) && (j != cnt)) massiv[cnt - j + (g-1-cnt)][i] = cnt2 + (cnt - i) * 3; }
+			else { if ((j != i) && (j != cnt)) massiv[cnt - j][i] = cnt2 + (cnt - i) * 3; }
+			outmas2(g, massiv);
 			cnt2++;
 		}
-		cnt2 = cnt * 4+1;
-		printf("\n");
-		printf("%i\n", cnt2);
-		printf("krug%i\n", krug);
-		printf("\n");
+		cnt2 = cnt*4*krug+1;
+		if (g % 2 != 0) massiv[g/2][g/2] = g*g;
 		krug += 1;
 		cnt -= 1;
 	}
-	outmas2(4, massiv);
+	outmas2(g, massiv);
 }

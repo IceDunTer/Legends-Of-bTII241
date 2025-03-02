@@ -1,27 +1,17 @@
 #define _CRT_SECURE_NO_WARNINGS
 #include <iostream>
 #include <locale>
-#include <stdlib.h>
-#include <ctype.h>
-#include <string.h>
+#include <sstream>
+using namespace std;
 
-int countWords(const char* s) {
+
+int countWords(const string& line) {
+    istringstream stream(line);
+    string word;
     int count = 0;
-    int word = 0;
-
-    while (*s) {
-        if (isalnum(*s)) {
-            if (!word) {
-                word = 1;
-                count++;
-            }
-        }
-        else {
-            word = 0;
-        }
-        s++;
+    while (stream >> word) {
+        count++;
     }
-
     return count;
 }
 

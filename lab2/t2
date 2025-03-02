@@ -8,16 +8,16 @@ int main() {
 	setlocale(LC_ALL, "RUS");
 	int massiv[4][6];
 	int g, sravn;
+	std::cout << "Введите числа массива" << std::endl;
 	for (int stol = 0; stol < 4; stol++) {
 		for (int str = 0; str < 6; str++) {
-			std::cout << "Введите число" << std::endl;
 			std::cin >> g;
 			massiv[stol][str] = g;
 		}
 	}
 	for (int stol = 0; stol < 4; stol++) {
 		for (int str = 0; str < 6; str++) {
-			std::cout << std::setw(5)<<massiv[stol][str]<<' ';
+			std::cout << std::setw(5) << massiv[stol][str] << ' ';
 		}
 		std::cout << std::endl;
 	}

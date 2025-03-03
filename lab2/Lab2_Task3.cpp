@@ -38,7 +38,7 @@ void main() {
 	setlocale(LC_ALL, "RUS");
 	int arr[1000];
 	int n;
-	cout << "Введите кол-во символов в массиве:\n";
+	cout << "Введите кол-во чисел в массиве:\n";
 	scanf_s("%i", &n);
 	fillArray(arr, n); // заполнение массива
 	cout << "Исходный массив:";

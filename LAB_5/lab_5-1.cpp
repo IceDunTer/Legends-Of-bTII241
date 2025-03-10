@@ -8,7 +8,7 @@ public:
 	int x, y;
 	void print() {
 		cout << "x: " << x << "\ty: " << y << endl;
-		
+
 	}
 	void zero() {
 		cout << "перемещение в начало кординат x и y ";
@@ -20,9 +20,9 @@ public:
 	void range() {
 		double rast;
 		rast = sqrt(x + y);
-		cout << "расстояние от начала кординат до точнки = " << rast << endl;
+		cout << "расстояние от начала кординат до точки = " << rast << endl;
 	}
-	point ()
+	point()
 	{
 		x = 0;
 		y = 0;
@@ -31,7 +31,23 @@ public:
 	point(int raw_x, int raw_y)
 	{
 		x = raw_x;
-		y = raw_y;	
+		y = raw_y;
+	}
+	void vect(int xr, int yr) {
+		x += xr;
+		y += yr;
+	}
+	int ravno() {
+		if (x == y) return 1;
+		else return 0;
+	}
+	void ymn(int xr) {
+		x *= xr;
+		y *= xr;
+	}
+	void binn(int xr) {
+		x += xr;
+		y += xr;
 	}
 };
 
@@ -39,13 +55,13 @@ public:
 int main() {
 	setlocale(LC_ALL, "ru");
 	point tocka;
-	int choice;
+	int choice, a =0 , b=0;
 	while (true) {
-		cout << "выберите действие\n" << "1. ввод значений для x и y\n" << "2. перемещение в начало кординат x и y\n" << "3. расчитать растояние от начала кординатной плоскости до точки\n" << "4. вывод значений x и y\n" << "0. Выход" << endl << endl;
+		cout << "выберите действие\n" << "1. ввод значений для x и y\n" << "2. перемещение в начало кординат x и y\n" << "3. расчитать растояние от начала кординатной плоскости до точки\n" << "4. вывод значений x и y\n" << "5. переместиться на вектор\n" << "6. Увеличить обе координаты на 1\n" << "7. Уменьшить обе координаты на \n"<<"8. Проверка равенства координат\n"<<"8. Умножение координат на скаляр\n"<<"9. Бинарный +-\n" << "0. Выход" << endl << endl;
 		cin >> choice;
 		switch (choice) {
 		case 1:
-			cout << "\nВы выбрали опцию 1.\n" << "введитезначение X: ";
+			cout << "\nВы выбрали опцию 1.\n" << "введите значение X: ";
 			cin >> tocka.x;
 			cout << "введитезначение y: ";
 			cin >> tocka.y;
@@ -61,6 +77,31 @@ int main() {
 		case 4:
 			cout << "\nВы выбрали опцию 4.\n" << endl;
 			tocka.print();
+			break;
+		case 5:
+			cout << "\nВы выбрали опцию 5." << "\nВведите значения x" << endl;
+			cin >> a;
+			cout << "\nВведите значение у" << endl;
+			cin >> b;
+			tocka.vect(a, b);
+			break;
+		case 6:
+			cout << "\nВы выбрали опцию 6."<< endl;
+			tocka.vect(1, 1);
+			break;
+		case 7:
+			cout << "\nВы выбрали опцию 7." << endl;
+			tocka.vect(-1, -1);
+			break;
+		case 8:
+			cout << "\nВы выбрали опцию 8." << "\nВведите значения скаляра" << endl;
+			cin >> a;
+			tocka.ymn(a);
+			break;
+		case 9:
+			cout << "\nВы выбрали опцию 9." << "\nВведите значения скаляра" << endl;
+			cin >> a;
+			tocka.binn(a);
 			break;
 		case 0:
 			cout << "\nВыход из программы.\n";

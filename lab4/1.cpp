@@ -8,7 +8,7 @@ int main() {
     setlocale(LC_ALL, "ru");
     string str;
 
-    cout << "Ââåäèòå ñòðîêó: ";
+    cout << "Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ ÑÑ‚Ñ€Ð¾ÐºÑƒ: ";
     getline(cin, str);
 
     for (int i = 0; i < str.rfind("quit"); i++)

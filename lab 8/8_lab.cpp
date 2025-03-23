@@ -9,18 +9,18 @@ using namespace std;
 int main() {
     setlocale(LC_ALL, "ru");
     double ex, y;
-    cout << "Ââåäèòå ÷èñëî äëÿ èçâëå÷åíèÿ êîðíÿ:" << endl;
+    cout << "Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ Ñ‡Ð¸ÑÐ»Ð¾ Ð´Ð»Ñ Ð¸Ð·Ð²Ð»ÐµÑ‡ÐµÐ½Ð¸Ñ ÐºÐ¾Ñ€Ð½Ñ:" << endl;
     cin >> y;
 
     try {
         if (y < 0) {
-            throw logic_error("Íåëüçÿ èçâëå÷ü êîðåíü èç îòðèöàòåëüíîãî ÷èñëà.");
+            throw logic_error("ÐÐµÐ»ÑŒÐ·Ñ Ð¸Ð·Ð²Ð»ÐµÑ‡ÑŒ ÐºÐ¾Ñ€ÐµÐ½ÑŒ Ð¸Ð· Ð¾Ñ‚Ñ€Ð¸Ñ†Ð°Ñ‚ÐµÐ»ÑŒÐ½Ð¾Ð³Ð¾ Ñ‡Ð¸ÑÐ»Ð°.");
         }
         ex = sqrt(y);
-        cout << "Ðåçóëüòàò = " << ex << endl;
+        cout << "Ð ÐµÐ·ÑƒÐ»ÑŒÑ‚Ð°Ñ‚ = " << ex << endl;
     }
     catch (logic_error& e) {
-        cout << "Îøèáêà: " << e.what() << endl;
+        cout << "ÐžÑˆÐ¸Ð±ÐºÐ°: " << e.what() << endl;
     }
 
     return 0;

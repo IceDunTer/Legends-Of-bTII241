@@ -69,28 +69,28 @@ int main() {
 	setlocale(LC_ALL, "RUS");
 	double x, y;
 	cout << "Введите декартовы координаты:" << endl;
-	cin >> x;
-	cin >> y;
+	cin >> x >> y;
 
-	double r = (sqrt(x * x + y * y));
-	Dekart dekart(x, y);
-	Polar polar(r, atan2(y, x));
-	Natural natural(x, y);
+	Coordinate* dekart = new Dekart(x, y);
+	Coordinate* polar = new Polar(sqrt(x * x + y * y), atan2(y, x));
+	Coordinate* natural = new Natural(x, y);
 
-	dekart.printCoords();
-
-	polar.printCoords();
+	dekart->printCoords();
+	polar->printCoords();
 
 	cout << "---Декартовые в полярные:---\n";
-	Polar d2p = toPolar(dekart);
+	Polar d2p = toPolar(*dynamic_cast<Dekart*>(dekart));
 	d2p.printCoords();
 
 	cout << "---Полярные в декартовые:---\n";
 	Dekart p2d = toDekart(d2p);
 	p2d.printCoords();
 
-	natural.printCoords();
+	natural->printCoords();
+
+	delete dekart;
+	delete polar;
+	delete natural;
 
 	return 0;
-
 }

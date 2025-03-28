@@ -73,6 +73,28 @@ public:
         delete[] myArray;
     }
 
+    Array& operator=(const Array& mas)
+    {
+        if (this != &mas)
+        {
+            delete[] myArray;
+
+            n = mas.n;
+            if (n > 0)
+            {
+                myArray = new T[n];
+                for (size_t i = 0; i < n; ++i)
+                {
+                    myArray[i] = mas.myArray[i];
+                }
+            }
+            else
+            {
+                myArray = nullptr;
+            }
+        }
+        return *this;
+    }
     T& operator[](size_t idx)
     {
         if (idx >= n)

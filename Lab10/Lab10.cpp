@@ -1,6 +1,7 @@
 #include <iostream>
 #include <thread> // Потоки
 #include <vector> // Динамические массивы
+#include <locale>
 using namespace std;
 
 // Вывод матрицы. Ф-ция выполняющаяся в потоке
@@ -15,6 +16,7 @@ void printMatrix(const vector<vector<int>>& matrix) {
 }
 
 int main() {
+    setlocale(LC_ALL, "RUS");
     // Создаем двумерный вектор (динамический массив, или матрица) с элем. типа "int"
     vector<vector<int>> matrix = { 
         {1, 2, 3},

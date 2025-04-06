@@ -20,7 +20,7 @@ int main()
     regex numreg(R"(\+?\d+[\s-]([\d]{3}|\([\d]{3}\))[\s-][\d]{3}[\s-]([\d]{4}|[\d]{2}[\s-][\d]{2}))");
     string line, file = "History1.txt";
 
-    vector<PhoneNumber> frequency;  // Динамический массив для хранения номеров и их частоты
+    vector<PhoneNumber> frequency;  // Р”РёРЅР°РјРёС‡РµСЃРєРёР№ РјР°СЃСЃРёРІ РґР»СЏ С…СЂР°РЅРµРЅРёСЏ РЅРѕРјРµСЂРѕРІ Рё РёС… С‡Р°СЃС‚РѕС‚С‹
     int max_count = 0;
     string most_frequent_number;
 
@@ -36,14 +36,14 @@ int main()
 
                 for (auto& phone : frequency) {
                     if (phone.number == number) {
-                        phone.count++;  // Увеличиваем счетчик для существующего номера
+                        phone.count++;  // РЈРІРµР»РёС‡РёРІР°РµРј СЃС‡РµС‚С‡РёРє РґР»СЏ СЃСѓС‰РµСЃС‚РІСѓСЋС‰РµРіРѕ РЅРѕРјРµСЂР°
                         found = true;
                         break;
                     }
                 }
 
                 if (!found) {
-                    frequency.push_back(PhoneNumber{ number, 1 });  // Добавляем новый номер с начальным счетчиком
+                    frequency.push_back(PhoneNumber{ number, 1 });  // Р”РѕР±Р°РІР»СЏРµРј РЅРѕРІС‹Р№ РЅРѕРјРµСЂ СЃ РЅР°С‡Р°Р»СЊРЅС‹Рј СЃС‡РµС‚С‡РёРєРѕРј
                 }
 
                 cout << number << endl;
@@ -53,11 +53,11 @@ int main()
     }
     else
     {
-        cout << "Ошибка открытия файла!" << endl;
+        cout << "РћС€РёР±РєР° РѕС‚РєСЂС‹С‚РёСЏ С„Р°Р№Р»Р°!" << endl;
         return 1;
     }
 
-    // Ищем номер с наибольшей частотой
+    // РС‰РµРј РЅРѕРјРµСЂ СЃ РЅР°РёР±РѕР»СЊС€РµР№ С‡Р°СЃС‚РѕС‚РѕР№
     for (const auto& phone : frequency)
     {
         if (phone.count > max_count) {
@@ -66,7 +66,7 @@ int main()
         }
     }
 
-    cout << "Номер телефона с самым большим количеством звонков: " << endl;
-    cout << most_frequent_number << " (Количество: " << max_count << ")" << endl;
+    cout << "РќРѕРјРµСЂ С‚РµР»РµС„РѕРЅР° СЃ СЃР°РјС‹Рј Р±РѕР»СЊС€РёРј РєРѕР»РёС‡РµСЃС‚РІРѕРј Р·РІРѕРЅРєРѕРІ: " << endl;
+    cout << most_frequent_number << " (РљРѕР»РёС‡РµСЃС‚РІРѕ: " << max_count << ")" << endl;
     return 0;
 }
